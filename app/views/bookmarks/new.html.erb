@@ -1,0 +1,8 @@
+<div class="container shadow p-3 mt-3 border border-black rounded-5 w-50">
+  <h1 class="text-center fw-bold">Add a Bookmark</h1>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie, prompt: "Select a movie" %>
+    <%= f.input :comment %>
+    <%= f.submit class: "btn btn-success rounded-5" %> <%= link_to "return to list", lists_path(@list), class: "btn btn-success rounded-5" %>
+  <% end %>
+</div>
