@@ -1,12 +1,15 @@
 class ListsController < ApplicationController
+  #read CRUD
   def index
     @lists = List.all
+    api = ENV['CLOUDINARY_URL']
   end
 
   def show
     @list = List.find(params[:id])
   end
 
+  #post C
   def new
     @list = List.new
   end
@@ -23,6 +26,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end
