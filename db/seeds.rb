@@ -19,7 +19,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Get.new(url)
 request["accept"] = 'application/json'
-request["Authorization"] = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZDU5NmY1ZDIyOTg4MjU3OTIyNmMzYzAzZTNlMjZkNiIsIm5iZiI6MTc0ODEwMDQ3NS45NTM5OTk4LCJzdWIiOiI2ODMxZTU3YjZkNzA3OGM4NjE0MTM5N2UiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.iRuH55Wvv30SIoozib-XT2F43cWMXo5xD6LcelV02t8'
+request["Authorization"] = "Bearer #{ENV['TMDB_API_BEARER']}"
 
 response = JSON.parse(http.request(request).read_body)
 results = response['results']
